@@ -1,20 +1,26 @@
-FROM alpine:3.7
+FROM alpine:edge
 
 # Set python to use utf-8 rather than ascii.
 ENV \
   PYTHONIOENCODING="UTF-8" \
   LOGLEVEL="verbose"
 
-# install frolvlad/alpine-python3
-RUN apk add --no-cache python3 && \
-  python3 -m ensurepip && \
+RUN apk add --no-cache python2 && \
+  python2 -m ensurepip && \
   rm -r /usr/lib/python*/ensurepip && \
-  pip3 install --upgrade pip setuptools
+  pip install --upgrade pip setuptools
+
+# Install deluge
+RUN apk add --no-cache \
+  --repository http://nl.alpinelinux.org/alpine/edge/testing \
+  deluge
+
+ENV VERSION="==2.14.2"
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
-  pip3 install --upgrade --force-reinstall --ignore-installed \
-    flexget && \
+  pip install --upgrade --force-reinstall --ignore-installed flexget$VERSION && \
+  pip install subliminal && \
   rm -r /root/.cache
 
 VOLUME /config /downloads
