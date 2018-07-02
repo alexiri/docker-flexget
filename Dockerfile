@@ -19,4 +19,6 @@ RUN apk --no-cache add ca-certificates tzdata && \
 
 VOLUME /config /downloads
 
-CMD ["/usr/bin/flexget", "-c /config/config.yml", "--loglevel $LOGLEVEL", "daemon start --autoreload-config"]
+ADD entry.sh .
+
+ENTRYPOINT ["/entry.sh"]
