@@ -17,6 +17,6 @@ RUN apk --no-cache add ca-certificates tzdata && \
     flexget && \
   rm -r /root/.cache
 
-VOLUME /config
+VOLUME /config /downloads
 
 CMD ["/usr/bin/flexget", "-c /config/config.yml", "--loglevel $LOGLEVEL", "daemon start --autoreload-config"]
