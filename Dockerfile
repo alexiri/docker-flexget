@@ -19,7 +19,7 @@ ENV VERSION="==2.14.2"
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
-  pip install --upgrade --force-reinstall --ignore-installed flexget$VERSION && \
+  pip install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat && \
   pip install subliminal && \
   rm -r /root/.cache
 
