@@ -19,7 +19,7 @@ ENV VERSION="==3.1.26"
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
-  pip3 install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat && \
+  pip3 install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat transmissionrpc && \
   pip3 install subliminal && \
   rm -r /root/.cache
 
