@@ -15,7 +15,7 @@ RUN apk add --no-cache \
   --repository http://nl.alpinelinux.org/alpine/edge/testing \
   deluge
 
-ENV VERSION="==2.14.2"
+ENV VERSION="==3.1.26"
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
