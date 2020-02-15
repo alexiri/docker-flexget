@@ -5,10 +5,10 @@ ENV \
   PYTHONIOENCODING="UTF-8" \
   LOGLEVEL="verbose"
 
-RUN apk add --no-cache python2 && \
-  python2 -m ensurepip && \
+RUN apk add --no-cache python3 && \
+  python3 -m ensurepip && \
   rm -r /usr/lib/python*/ensurepip && \
-  pip install --upgrade pip setuptools
+  pip3 install --upgrade pip setuptools
 
 # Install deluge
 RUN apk add --no-cache \
@@ -19,8 +19,8 @@ ENV VERSION="==3.1.26"
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
-  pip install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat && \
-  pip install subliminal && \
+  pip3 install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat && \
+  pip3 install subliminal && \
   rm -r /root/.cache
 
 VOLUME /config /downloads
