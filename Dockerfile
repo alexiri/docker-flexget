@@ -15,11 +15,11 @@ RUN apk add --no-cache \
   --repository http://nl.alpinelinux.org/alpine/edge/testing \
   deluge
 
-ENV VERSION="==3.1.26"
+ENV VERSION="==3.1.50"
 
 # install flexget
-RUN apk --no-cache add ca-certificates tzdata && \
-  pip3 install --upgrade --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat transmissionrpc && \
+RUN apk --no-cache add ca-certificates tzdata gcc musl-dev python3-dev jpeg-dev zlib-dev && \
+  pip3 install --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat transmissionrpc && \
   pip3 install subliminal && \
   rm -r /root/.cache
 
