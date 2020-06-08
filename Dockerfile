@@ -3,7 +3,8 @@ FROM alpine:edge
 # Set python to use utf-8 rather than ascii.
 ENV \
   PYTHONIOENCODING="UTF-8" \
-  LOGLEVEL="verbose"
+  LOGLEVEL="verbose" \
+  VERSION="==3.1.63"
 
 RUN apk add --no-cache python3 && \
   python3 -m ensurepip && \
@@ -15,12 +16,9 @@ RUN apk add --no-cache \
   --repository http://nl.alpinelinux.org/alpine/edge/testing \
   deluge
 
-ENV VERSION="==3.1.50"
-
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata gcc musl-dev python3-dev jpeg-dev zlib-dev && \
-  pip3 install --force-reinstall --ignore-installed flexget$VERSION incremental constantly Automat transmissionrpc && \
-  pip3 install subliminal && \
+  pip3 install --force-reinstall --ignore-installed flexget$VERSION transmissionrpc subliminal && \
   rm -r /root/.cache
 
 VOLUME /config /downloads
