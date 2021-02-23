@@ -4,7 +4,7 @@ FROM alpine:edge
 ENV \
   PYTHONIOENCODING="UTF-8" \
   LOGLEVEL="verbose" \
-  VERSION="==3.1.99"
+  VERSION="==3.1.103"
 
 RUN apk add --no-cache python3 && \
   python3 -m ensurepip && \
@@ -18,7 +18,7 @@ RUN apk add --no-cache \
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata gcc musl-dev python3-dev jpeg-dev zlib-dev && \
-  pip3 install --force-reinstall --ignore-installed flexget$VERSION transmissionrpc subliminal && \
+  pip3 install --force-reinstall --ignore-installed flexget$VERSION transmission-rpc subliminal && \
   rm -r /root/.cache
 
 VOLUME /config /downloads
