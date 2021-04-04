@@ -17,7 +17,7 @@ RUN apk add --no-cache \
   deluge
 
 # install flexget
-RUN apk --no-cache add ca-certificates tzdata gcc musl-dev python3-dev jpeg-dev zlib-dev && \
+RUN apk --no-cache add ca-certificates tzdata gcc g++ musl-dev python3-dev jpeg-dev zlib-dev && \
   pip3 install --force-reinstall --ignore-installed flexget$VERSION transmission-rpc subliminal && \
   rm -r /root/.cache
 
