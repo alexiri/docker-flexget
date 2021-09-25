@@ -4,12 +4,13 @@ FROM alpine:edge
 ENV \
   PYTHONIOENCODING="UTF-8" \
   LOGLEVEL="verbose" \
-  VERSION="==3.1.124"
+  VERSION="==3.1.137"
 
 RUN apk add --no-cache python3 && \
   python3 -m ensurepip && \
   rm -r /usr/lib/python*/ensurepip && \
-  pip3 install --upgrade pip setuptools
+  echo "done"
+#  pip3 install --upgrade pip setuptools
 
 # Install deluge
 RUN apk add --no-cache \
