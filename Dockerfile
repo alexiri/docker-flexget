@@ -4,7 +4,7 @@ FROM alpine:edge
 ENV \
   PYTHONIOENCODING="UTF-8" \
   LOGLEVEL="verbose" \
-  VERSION="==3.1.149"
+  VERSION="==3.4.2"
 
 RUN apk add --no-cache python3 && \
   python3 -m ensurepip && \
